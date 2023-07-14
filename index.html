@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Simulacion de conducion </title>
+       <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+       <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+       <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+       <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js" crossorigin="anonymous" ></script>
+       <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+       <script src="./drive.js"></script>
+    </head>
+    <body>
+        <a-scene id="scene" background="color:lightblue">
+            <a-assets>
+                <a-asset-item
+                  id="city"
+                  src="./city/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                  id="volante"
+                  src="./volante_fiat__steering_wheel/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                  id="pedal1"
+                  src="./accelerator_pedal/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                  id="girl"
+                  src="./stylized_low_poly_girl_character/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                  id="boy"
+                  src="./running_boy/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                  id="cat"
+                  src="./toon_cat_free/scene.gltf"
+                ></a-asset-item>
+            </a-assets>
+
+            <a-entity>
+              <a-entity id="ciudad" position="4 -1.5 1" rotation="0 -180 0" scale="0.005 0.005 0.005" gltf-model="#city"></a-entity>
+          </a-entity>
+
+          <a-entity>
+            <a-entity id="woman" position="-6.3 -1.5 -4" rotation="0 90 0" scale="0.65 0.65 0.65" gltf-model="#girl"></a-entity>
+          </a-entity>
+
+          <a-entity>
+            <a-entity id="niño" position="-1 -1.5 20" rotation="0 -90 0" scale="0.2 0.2 0.2" gltf-model="#boy"></a-entity>
+          </a-entity>
+
+          <a-entity>
+            <a-entity id="gato" position="-1.5 -1.2 14" rotation="0 90 0" scale="0.0015 0.0015 0.0015" gltf-model="#cat"></a-entity>
+          </a-entity>
+
+          <a-entity id="camera-rig" movement-controls="speed: 0.05" position="0 0 0" rotation="0 0 0" drive >
+            <a-entity id="camaras" camera position="0 0 30"  rotation="0 0 0" look-controls="pointerLockEnabled: false" ></a-entity>          
+
+            <a-entity>
+                <a-entity id="volante1" position="0 -1 28" rotation="0 0 0" scale="0.6 0.6 0.6" gltf-model="#volante"></a-entity>
+            </a-entity>
+
+            <a-entity>
+              <a-entity id="pedalAcelerar" position="-0.6 -0.5 28.1" rotation="0 180 0" scale="0.002 0.002 0.002" gltf-model="#pedal1"></a-entity>
+            </a-entity>
+
+            <a-entity>
+              <a-entity id="pedalFrenar" position="-0.9 -0.5 28.1" rotation="0 180 0" scale="0.002 0.002 0.002" gltf-model="#pedal1"></a-entity>
+            </a-entity>
+
+            <a-plane
+             id="acelerar" color="red" position="-0.6 -0.5 28.1" width="0.08" height="0.08"
+            ></a-plane>
+
+            <a-plane
+             id="freno" color="red" position="-0.9 -0.5 28.1" width="0.08" height="0.08"
+            ></a-plane>
+
+          </a-entity>
+          
+        </a-scene>
+    </body>
+</html>
